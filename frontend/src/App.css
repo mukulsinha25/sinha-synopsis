@@ -51,7 +51,7 @@ body {
    HEADER / NAVBAR
 ========================= */
 .header {
-  background: #f7f7f5;
+  background: #f4f4f2;
   font-family: 'Host Grotesk', sans-serif;
   border-radius: 18px;
   padding: 18px 32px;
@@ -66,7 +66,7 @@ body {
   color: #111;
 }
 .logo span {
-  color: #4e8f87;
+  color: #2fe128;
 }
 .nav {
   display: flex;
@@ -88,6 +88,11 @@ body {
   height: 2px;
   background: #222;
 }
+
+
+
+
+
 /* =========================
    HERO SECTION
 ========================= */
@@ -127,7 +132,7 @@ body {
 
 /* CTA BUTTON */
 .hero-cta {
-  padding: 14px 36px;
+  padding: 14px 46px;
   border-radius: 40px;
   border: none;
   background: white;
@@ -135,6 +140,9 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  position: absolute;
+  top: 600px;      /* move down */
+  left: 130px;
 }
 .hero-cta:hover {
   transform: translateY(-4px);
@@ -477,6 +485,36 @@ body {
   z-index: 1;
 }
 
+/* LATEST BLOG POINTER */
+.book.latest::after {
+  content: "Latest";
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  background: #ff4d4f;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 6px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 200;
+}
+
+/* subtle attention animation */
+.book.latest {
+  animation: latestPulse 2s infinite;
+}
+
+@keyframes latestPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255,77,79,0.0);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(255,77,79,0.6);
+  }
+}
+
 /* SPINE */
 .book-spine {
   height: 100%;
@@ -638,3 +676,130 @@ body {
   height: 100%;
   border: none;
 }
+
+
+/* =========================
+   FEATURED LATEST BLOG (HOME)
+========================= */
+
+/* .featured-book {
+  position: absolute;
+  right: 760px;
+  bottom: 30px;
+  font-size: 20px;
+  text-decoration: none;
+  z-index: 20;
+  animation: float 4s ease-in-out infinite;
+}
+
+.featured-book .book-spine {
+  height: 220px;
+  width: 70px;
+  border-radius: 10px;
+}
+
+.featured-label {
+  text-align: center;
+  font-size: 20px;
+  color: #ff6666;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+/* gentle float to match your cinematic UI */
+/* @keyframes float {
+  10%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+} */ */
+
+
+/* FEATURED BOOK – LIGHT SWEEP */
+
+.book-spine.featured {
+  position: relative;
+  overflow: hidden;
+}
+
+/* light layer */
+.book-spine.featured::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  width: 60%;
+  height: 580%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  transform: rotate(180deg);
+  animation: lightSweep 5.5s ease-in-out infinite;    /* this is the shadow on the blog that movees up and down*/
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -820%;
+  }
+  45% {
+    left: 40%;
+  }
+  100% {
+    left: 940%;
+  }
+}
+
+
+/* =========================
+   HERO – LATEST BLOG LINK
+========================= */
+
+.latest-blog-link {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: none;
+}
+
+/* vertical label */
+.featured-label {
+  writing-mode: vertical-rl;
+  transform: rotate(270deg);
+  font-size: 20px;
+  font-family: 'Host Grotesk', cursive;
+  font-weight: 600;
+  color: #f28807;
+  letter-spacing: 1px;
+  display: flex;
+  position: absolute;
+  top: 510px;      /* move down */
+  left:440px;
+  
+}
+
+/* featured book look */
+.book-spine.featured {
+  height: 200px;
+  width: 70px;
+  /* font-size: 10px; */
+  font-family: 'Host Grotesk', cursive;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #5ec2b7, #3a8f8b);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transform: rotate(90deg);
+    position: absolute;
+  top: 520px;      /* move down */
+  left:420px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* subtle hover */
+
+/* .latest-blog-link:hover .book-spine.featured {
+  transform: rotate(30deg);
+  transition: transform 0.9s ease-in-out;
+} */

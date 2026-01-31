@@ -107,7 +107,8 @@ function Contact() {
         <nav className="nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/blogs">Blogs</Link>
+          {/* <Link to="/contact">Contact</Link> */}
         </nav>
       </header>
 
@@ -155,11 +156,11 @@ function Contact() {
               <path d="M12 10v6" />
               <path d="M12 13c0-2 4-2 4 0v3" />
             </svg>
-            <span>LinkedIn – Mukul Sinha</span>
+            <span>LinkedIn – https://www.linkedin.com/in/mukulsinha25/</span>
           </a>
 
           <p className="contact-note">
-            Ideas, collaborations, or just a hello — my inbox is always open.
+            Ideas, collaborations, or just a hello , my inbox is always open.
           </p>
         </div>
 
