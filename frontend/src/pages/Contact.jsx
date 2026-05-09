@@ -1,170 +1,68 @@
-// import "../App.css";
-// import bgVideo from "../assets/background.mp4";
-// import { Link } from "react-router-dom";
-
-
-// function Contact() {
-//   return (
-//     <div className="page">
-
-//       {/* VIDEO BACKGROUND */}
-//       <video className="bg-video" autoPlay muted loop playsInline>
-//         <source src={bgVideo} type="video/mp4" />
-//       </video>
-
-//       <div className="video-overlay" />
-
-//       {/* HEADER */}
-//       <header className="header">
-//         <div className="logo">
-//           Sinha Synopsis<span>.</span>
-//         </div>
-
-//         <nav className="nav">
-//           <a href="/">Home</a>
-//           <a href="/about">About</a>
-//           <a href="/contact">Contact</a>
-//         </nav>
-//       </header>
-
-//       {/* CONTACT CONTENT */}
-//       <section className="contact">
-
-//         {/* LEFT – ANIMATION */}
-//         <div className="contact-left">
-//           <div className="orbit">
-//             <span className="dot dot-1" />
-//             <span className="dot dot-2" />
-//             <span className="dot dot-3" />
-//           </div>
-//         </div>
-
-//         {/* RIGHT – CONTACT LINKS */}
-//         <div className="contact-right">
-//           <span className="contact-eyebrow">Get in touch</span>
-
-//           <h1>Let’s talk.</h1>
-
-//           {/* EMAIL */}
-//           <a href="mailto:mukulsinha25@gmail.com" className="contact-item svg-link">
-//             <svg viewBox="0 0 24 24" className="icon">
-//               <path d="M3 6h18v12H3z" />
-//               <path d="M3 6l9 7 9-7" />
-//             </svg>
-//             <span>mukulsinha25@gmail.com</span>
-//           </a>
-
-//           {/* LINKEDIN */}
-//           <a
-//             href="https://www.linkedin.com/in/mukulsinha25/"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="contact-item svg-link"
-//           >
-//             <svg viewBox="0 0 24 24" className="icon">
-//               <path d="M4 4h16v16H4z" />
-//               <path d="M8 10v6" />
-//               <path d="M8 7v.01" />
-//               <path d="M12 10v6" />
-//               <path d="M12 13c0-2 4-2 4 0v3" />
-//             </svg>
-//             <span>Linkedin- Mukul Sinha</span>
-//           </a>
-
-//           <p className="contact-note">
-//             Ideas, collaborations, or just a hello — my inbox is always open.
-//           </p>
-//         </div>
-
-//       </section>
-//     </div>
-//   );
-// }
-
-// export default Contact;
-
-import "../App.css";
-import bgVideo from "../assets/background.mp4";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("mukulsinha25@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <div className="page contact-page">
+    <div className="contact-page">
+      <div className="contact-container">
+        <h1>Get in Touch</h1>
+        <p className="contact-intro">
+          Ideas, collaborations, or just a hello — my inbox is always open.
+        </p>
 
-      {/* VIDEO BACKGROUND */}
-      <video className="bg-video" autoPlay muted loop playsInline>
-        <source src={bgVideo} type="video/mp4" />
-      </video>
-
-      <div className="video-overlay" />
-
-      {/* HEADER */}
-      <header className="header">
-        <div className="logo">
-          Sinha Synopsis<span>.</span>
-        </div>
-
-        <nav className="nav">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blogs">Blogs</Link>
-          {/* <Link to="/contact">Contact</Link> */}
-        </nav>
-      </header>
-
-      {/* CONTACT CONTENT */}
-      <section className="contact">
-
-        {/* LEFT – ANIMATION */}
-        <div className="contact-left">
-          <div className="orbit">
-            <span className="dot dot-1" />
-            <span className="dot dot-2" />
-            <span className="dot dot-3" />
-          </div>
-        </div>
-
-        {/* RIGHT – CONTACT LINKS */}
-        <div className="contact-right">
-          <span className="contact-eyebrow">Get in touch</span>
-
-          <h1>Let’s talk.</h1>
-
-          {/* EMAIL */}
+        <div className="contact-links">
+          {/* Email */}
           <a
             href="mailto:mukulsinha25@gmail.com"
-            className="contact-item svg-link"
+            className="contact-card"
           >
-            <svg viewBox="0 0 24 24" className="icon">
-              <path d="M3 6h18v12H3z" />
-              <path d="M3 6l9 7 9-7" />
-            </svg>
-            <span>mukulsinha25@gmail.com</span>
+            <div className="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 7l-10 6L2 7" />
+              </svg>
+            </div>
+            <div className="contact-card__info">
+              <h3>Email</h3>
+              <p>mukulsinha25@gmail.com</p>
+            </div>
           </a>
 
-          {/* LINKEDIN */}
+          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/mukulsinha25/"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-item svg-link"
+            className="contact-card"
           >
-            <svg viewBox="0 0 24 24" className="icon">
-              <path d="M4 4h16v16H4z" />
-              <path d="M8 10v6" />
-              <path d="M8 7v.01" />
-              <path d="M12 10v6" />
-              <path d="M12 13c0-2 4-2 4 0v3" />
-            </svg>
-            <span>LinkedIn – https://www.linkedin.com/in/mukulsinha25/</span>
+            <div className="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="4" />
+                <path d="M8 11v5" />
+                <path d="M8 8v.01" />
+                <path d="M12 11v5" />
+                <path d="M12 14c0-1.5 1-3 3-3s3 1.5 3 3v2" />
+              </svg>
+            </div>
+            <div className="contact-card__info">
+              <h3>LinkedIn</h3>
+              <p>Mukul Sinha</p>
+            </div>
           </a>
-
-          <p className="contact-note">
-            Ideas, collaborations, or just a hello , my inbox is always open.
-          </p>
         </div>
 
-      </section>
+        {/* Copy email button */}
+        <button className="copy-email-btn" onClick={handleCopyEmail}>
+          {copied ? "✓ Copied!" : "Copy email address"}
+        </button>
+      </div>
     </div>
   );
 }
