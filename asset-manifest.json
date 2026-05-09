@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fae1ac3e.css",
+    "main.js": "/static/js/main.cda7301e.js",
+    "static/media/mukul.jpeg": "/static/media/mukul.abe6f4d2f20e333ba815.jpeg",
+    "index.html": "/index.html",
+    "main.fae1ac3e.css.map": "/static/css/main.fae1ac3e.css.map",
+    "main.cda7301e.js.map": "/static/js/main.cda7301e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fae1ac3e.css",
+    "static/js/main.cda7301e.js"
+  ]
+}
