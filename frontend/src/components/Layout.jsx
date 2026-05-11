@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useVisitCounter } from "../hooks/useVisitCounter";
 
 function Layout({ children }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const siteVisits = useVisitCounter("site-total");
 
   const navLinks = [
     { to: "/", label: "Home" },
@@ -49,6 +51,11 @@ function Layout({ children }) {
 
       <footer className="site-footer">
         <p>&copy; {new Date().getFullYear()} Sinha Synopsis. All rights reserved.</p>
+        {siteVisits !== null && (
+          <p className="site-footer__visits">
+            {siteVisits.toLocaleString()} total site visits
+          </p>
+        )}
       </footer>
     </div>
   );

@@ -71,10 +71,7 @@ function Home() {
             </span>
           </div>
 
-          <div className="hero-full__scroll">
-            <span>Scroll</span>
-            <div className="scroll-line" />
-          </div>
+
         </div>
       </section>
 

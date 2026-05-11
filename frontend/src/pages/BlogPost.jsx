@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useBloggerFeed } from "../hooks/useBloggerFeed";
+import { useVisitCounter } from "../hooks/useVisitCounter";
 import { useEffect } from "react";
 
 function BlogPost() {
@@ -8,6 +9,10 @@ function BlogPost() {
 
   const decodedSlug = decodeURIComponent(slug);
   const post = posts.find((p) => p.postUrl === decodedSlug);
+
+  // Track visits for this blog post
+  const postKey = slug ? `blog-${slug.replace(/[^a-zA-Z0-9]/g, "").slice(0, 40)}` : "unknown";
+  const blogVisits = useVisitCounter(postKey);
 
   // Scroll to top when post loads
   useEffect(() => {
@@ -120,6 +125,17 @@ function BlogPost() {
             ← More Posts
           </Link>
         </footer>
+
+        {/* Visit counter */}
+        {blogVisits !== null && (
+          <div className="blog-post__visits">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span>{blogVisits.toLocaleString()} {blogVisits === 1 ? "view" : "views"}</span>
+          </div>
+        )}
       </article>
     </div>
   );
